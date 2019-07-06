@@ -21,10 +21,9 @@ var threeSum = function(nums) {
         for(let j=i+1;j<len-1;j++){
             for(let k=j+1;k<len;k++){
                 if(nums[i]+nums[j]+nums[k]===0){
-                    let tmp = []
-					tmp.push(nums[i],nums[j],nums[k])
-					tmp.sort()
-					let key = tmp.toString()
+                    let tmp = [nums[i],nums[j],nums[k]]
+					tmp.sort((a,b)=>a-b)
+					let key = tmp.join(",")
 					if(!map[key]){
 						map[key] = true
 						result.push(tmp)
@@ -53,10 +52,9 @@ var threeSum = function(nums) {
         for(let j=i+1;j<len;j++){
 			let t = 0-nums[i]-nums[j]
             if(hash[t]&&hash[t].find(item=>item!==i&&item!==j)){
-				let tmp = []
-				tmp.push(nums[i],nums[j],t)
-				tmp.sort()
-				let key = tmp.toString()
+				let tmp = [nums[i],nums[j],t]
+				tmp.sort((a,b)=>a-b)
+				let key = tmp.join(",")
 				if(!map[key]){
 					map[key] = true
 					result.push(tmp)
